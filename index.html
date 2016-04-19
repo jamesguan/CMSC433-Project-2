@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- LOAD ALL JAVASCRIPT AND CSS -->
+  <script src="assets/init.js"></script>
+  <script src="assets/Course.js"></script>
+  <script src="assets/ColorFiller.js"></script>
+  <script src="assets/Validator.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/index.css">
+</head>
+
+<!-- WHEN THE PAGE LOADS, CALL THE init() FUNCTION FROM init.js -->
+<body onload="init()">
+
+<!-- DIV TO KEEP THE FORM SEPERATE FROM THE TABLES -->
+<div class="form">
+
+  <!-- WHEN THE FORM IS SUBMITTED, CALL THE Course.compileTakenCourses() FUNCTION FROM Course.js 
+       AND Validator.validate() FUNCTION FROM Validator.js-->
+  <form name="form" onsubmit="Course.compileTakenCourses(); return Validator.validate()" action="submit.php" method="POST">
+    Name:<br>
+    <!-- INPUT TEXTBOX FOR NAME -->
+    <input name="name"></input><br>
+    <br>
+    Phone (10 digit #):<br>
+    <!-- INPUT TEXTBOX FOR PHONE -->
+    <input name="phone"></input><br>
+    <br>
+    Email:<br>
+    <!-- INPUT TEXTBOX FOR EMAIL -->
+    <input name="email"></input><br>
+    <br>
+    Campus ID:<br>
+    <!-- INPUT TEXTBOX FOR CAMPUS ID -->
+    <input name="id"></input><br>
+    <br>
+    Select Class: <br>
+     <!-- THIS IS INITIALIZED BY THE init() FUNCTION. THIS WILL CONTAIN OPTIONS FOR ALL CLASSES -->
+    <select name="courses"></select>
+    <br>
+    <!-- ATTEMPTS TO ADD A COURSE WHEN CLICKED -->
+    <input type="button" name="add" value="Add" class="AddButton" onClick="Course.addCourse()"></input>
+    <!-- ATTEMPTS TO REMOVE A COURSE WHEN CLICKED -->
+    <input type="button" name="remove" value="Remove" class="RemoveButton" onClick="Course.removeCourse()"></input><br> 
+    <br>
+    <!-- BUTTON TO SUBMIT THE FORM -->
+    <input type="submit" name="submit" value="Submit" class="SubmitButton"></input>
+    
+    <!-- HIDDEN SELECT ELEMENT TO PASS INTO PHP ON SUBMIT. FILLED BY THE Course.compileTakenCourses() FUNCTION. -->
+    <select name="taken[]" multiple="multiple" hidden="hidden"></select>
+  </form>
+  
+  <br><br>
+  
+  <!-- TABLE FOR COLOR KEY -->
+  <table class="KeyTable">
+  <th colspan="1">KEY</th>
+  <tr><td style="background: #00FF00">TAKEN</td></tr>
+  <tr><td style="background: yellow">CAN TAKE</td></tr>
+  <tr><td style="background: red">CANNOT TAKE</td></tr>
+  </table>  
+</div>
+
+<!-- DIV TO KEEP THE TABLES SEPERATE FROM THE FORM -->
+<div class="tables">
+  <!-- TABLE FOR REQUIRED CMSC COURSES -->
+  <table class="Left45Table">
+  <th colspan="3">REQUIRED CMSC COURSES</th>
+  <tr><td id="CMSC201" onClick="Course.addCourse()">CMSC201</td><td id="CMSC202">CMSC202</td><td id="CMSC203">CMSC203</td></tr>
+  <tr><td id="CMSC304">CMSC304</td><td id="CMSC313">CMSC313</td><td id="CMSC331">CMSC331</td></tr>
+  <tr><td id="CMSC341">CMSC341</td><td id="CMSC411">CMSC411</td><td id="CMSC421">CMSC421</td></tr>
+  <tr><td id="CMSC441">CMSC441</td><td id="CMSC447">CMSC447</td></tr>
+  </table>
+    
+  <!-- TABLE FOR COMPUTER SCIENCE ELECTIVES -->
+  <table class="Right45Table">
+  <th colspan="3">COMPUTER SCIENCE ELECTIVES</th>
+  <tr><td id="CMSC426">CMSC426</td><td id="CMSC431">CMSC431</td><td id="CMSC435">CMSC435</td></tr>
+  <tr><td id="CMSC448">CMSC448</td><td id="CMSC451">CMSC451</td><td id="CMSC455">CMSC455</td></tr>
+  <tr><td id="CMSC456">CMSC456</td><td id="CMSC461">CMSC461</td><td id="CMSC471">CMSC471</td></tr>
+  <tr><td id="CMSC481">CMSC481</td><td id="CMSC483">CMSC483</td></tr>
+  </table>
+  
+  <!-- TABLE FOR TECHNICAL ELECTIVES -->
+  <table class="FullTable">
+  <th colspan="8">TECHNICAL ELECTIVES</th>
+  <tr><td id="CMSC427">CMSC427</td><td id="CMSC432">CMSC432</td><td id="CMSC433">CMSC433</td><td id="CMSC436">CMSC436</td><td id="CMSC437">CMSC437</td><td id="CMSC442">CMSC442</td><td id="CMSC443">CMSC443</td><td id="CMSC444">CMSC444</td></tr>
+  <tr><td id="CMSC446">CMSC446</td><td id="CMSC452">CMSC452</td><td id="CMSC453">CMSC453</td><td id="CMSC457">CMSC457</td><td id="CMSC465">CMSC465</td><td id="CMSC466">CMSC466</td><td id="CMSC473">CMSC473</td><td id="CMSC475">CMSC475</td></tr>
+  <tr><td id="CMSC476">CMSC476</td><td id="CMSC477">CMSC477</td><td id="CMSC478">CMSC478</td><td id="CMSC479">CMSC479</td><td id="CMSC484">CMSC484</td><td id="CMSC486">CMSC486</td><td id="CMSC487">CMSC487</td><td id="CMSC491">CMSC491</td></tr>
+  <tr><td id="CMSC493">CMSC493</td><td id="MATH430">MATH430</td><td id="MATH441">MATH441</td><td id="MATH452">MATH452</td><td id="MATH475">MATH475</td><td id="MATH481">MATH481</td><td id="MATH483">MATH483</td></tr>
+  </table>
+  
+  <!-- TABLE FOR GENERAL CREDIT ELECTIVES -->
+  <table class="Left60Table">
+  <th colspan="4">GENERAL CREDIT ELECTIVES</th>
+  <tr><td id="CMSC100">CMSC100</td><td id="CMSC103">CMSC103</td><td id="CMSC104">CMSC104</td><td id="CMSC106">CMSC106</td></tr>
+  <tr><td id="CMSC109">CMSC109</td><td id="CMSC121">CMSC121</td><td id="CMSC232">CMSC232</td><td id="CMSC291">CMSC291</td></tr>
+  <tr><td id="CMSC299">CMSC299</td><td id="CMSC345">CMSC345</td><td id="CMSC352">CMSC352</td><td id="CMSC391">CMSC391</td></tr>
+  <tr><td id="CMSC404">CMSC404</td><td id="CMSC495">CMSC495</td><td id="CMSC498">CMSC498</td><td id="CMSC499">CMSC499</td></tr>
+  </table>
+  
+  <!-- TABLE FOR REQUIRED MATH AND STAT -->
+  <table class="Right30Table">
+  <th colspan="2">REQUIRED MATH</th>
+  <tr><td id="MATH151">MATH151</td><td id="MATH152">MATH152</td><tr>
+  <tr><td id="MATH221">MATH221</td><td id="STAT355">STAT355</td></tr>
+  </table>
+  
+  <!-- TABLE FOR REQUIRED SCIENCES -->
+  <table class="FullTable">
+  <th colspan="4">REQUIRED SCIENCE</th>
+  <tr><td id="BIOL100">BIOL100</td><td id="BIOL301">BIOL301</td><td id="BIOL141">BIOL141</td><td id="BIOL142">BIOL142</td></tr>
+  <tr><td id="CHEM101">CHEM101</td><td id="CHEM102">CHEM102</td><td id="PHYS121">PHYS121</td><td id="PHYS122">PHYS122</td></tr>
+  </table>
+  
+  <!-- TABLE FOR ADDITIONAL SCIENCES -->
+  <table class="FullTable">
+  <th colspan="5">ADDITIONAL SCIENCES</th>
+  <tr><td id="BIOL100L">BIOL100L</td><td id="BIOL251">BIOL251</td><td id="BIOL251L">BIOL251L</td><td id="BIOL252">BIOL252</td><td id="BIOL252L">BIOL252L</td></tr>
+  <tr><td id="BIOL275">BIOL275</td><td id="BIOL275L">BIOL275L</td><td id="BIOL302">BIOL302</td><td id="BIOL302L">BIOL302L</td><td id="BIOL303">BIOL303</td></tr>
+  <tr><td id="BIOL303L">BIOL303L</td><td id="BIOL304">BIOL304</td><td id="BIOL304L">BIOL304L</td><td id="BIOL305">BIOL305</td><td id="BIOL305L">BIOL305L</td></tr>
+  <tr><td id="CHEM102L">CHEM102L</td><td id="GES110">GES110</td><td id="GES111">GES111</td><td id="GES120">GES120</td><td id="MATH225">MATH225</td></tr>
+  <tr><td id="MATH251">MATH251</td><td id="MATH301">MATH301</td><td id="PHYS122L">PHYS122L</td><td id="PHYS224">PHYS224</td><td id="PHYS304">PHYS304</td></tr>
+</div>
+</body>
+</html>
