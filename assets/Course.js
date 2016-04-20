@@ -23,7 +23,7 @@ function Course(prereqs){
 
 //adds selected courses in the select course list to the list of taken courses.
 //returns true if courses were added. false otherwise
-Course.addCourse = function(){
+Course.addCourse = function(courseNum){
   //get the list of courses from the courses from the webpage
   var courseList = document.form.elements["courses"];
 
@@ -31,26 +31,26 @@ Course.addCourse = function(){
   var rtn = false;
 
   //loop through all options and attempt to add any selected courses
-  for(var i = 0; i < courseList.options.length; i++){
+  //for(var i = 0; i < courseList.options.length; i++){
     //get the select option and courseID
-    var courseOption = courseList.options[i];
-    var courseID = courseOption.value;
+   // var courseOption = courseList.options[i];
+    var courseID = courseNum;
     
     //if the current course is selected and it is addable
-    if(courseOption.selected == true && Course.validateAdd(courseID, true)){
+    if(Course.validateAdd(courseNum, true)){
       //if the course is CMSC4xx, increment the counter
       if(courseID.startsWith("CMSC4") && courseID != "CMSC447"){
         cntCMSC4xx = cntCMSC4xx + 1;
       }
       
       //add the course to the list of taken courses
-      taken.add(courseOption.value);
+      taken.add(courseNum);
       //change the color of this course and any unlocked courses
-      ColorFiller.update(courseOption.value);
+      ColorFiller.update(courseNum);
       //set return to true
       rtn = true;
     }
-  }
+  //}
   
   //alert("DEBUG (Course.addCourse): Added course? " + rtn);
   return rtn;
@@ -81,7 +81,7 @@ Course.validateAdd = function(courseID, warn){
   if(courseID == "CMSC447" && cntCMSC4xx == 0){
       //alert the user of missing prereq if warn is true
       if(warn){
-        alert("CMSC447 requires taking any CMSC400+ course as a prerequisite.");
+        alertonce("CMSC447 requires taking any CMSC400+ course as a prerequisite.");
       }
       return false;
   }
@@ -110,7 +110,7 @@ Course.validateAdd = function(courseID, warn){
 
 //removes selected courses in the select course list from the list of taken
 //courses. returns true if courses were removes. false otherwise
-Course.removeCourse = function(courseList){
+Course.removeCourse = function(courseNum){
   //get the list of courses from the courses from the webpage
   var courseList = document.form.elements["courses"];
 
@@ -118,27 +118,30 @@ Course.removeCourse = function(courseList){
   var rtn = false;
   
   //loop through all options and attempt to remove any selected courses
-  for(var i = 0; i < courseList.options.length; i++){
+  //for(var i = 0; i < courseList.options.length; i++){
     //get the select option and courseID
-    var courseOption = courseList.options[i];
-    var courseID = courseOption.value;
-    
+    //var courseOption = courseList.options[courseNum];
+ //   var courseID = courseOption.value;
+   // if(courseID == courseNum){
+    //  courseOption.selected = true;
+  //  }
+
     //if the current course is selected and it is removable
-    if(courseOption.selected == true && Course.validateRemove(courseID, true)){
+    if(Course.validateRemove(courseNum, true)){
       //if the course is CMSC4xx and is not 447, decrement the counter
-      if(courseID.startsWith("CMSC4") && courseID != "CMSC447"){
+      if(courseNum.startsWith("CMSC4") && courseNum != "CMSC447"){
         cntCMSC4xx = cntCMSC4xx - 1;
       }
       
       //remove the course from the list of taken classes
-      taken.delete(courseOption.value);
+      taken.delete(courseNum);
       //change the color of this course and any unlocked courses
-      ColorFiller.update(courseOption.value);
+      ColorFiller.update(courseNum);
       //set return to true
       rtn = true;
-    }
-  }
-  
+      }
+    
+  //}
   //alert("DEBUG (Course.removeCourse): Removed course? " + rtn);
   return rtn;
 }
@@ -247,4 +250,18 @@ Course.compileTakenCourses = function(){
 //CourseID = id (string) of the course to add
 Course.setTaken = function(courseID){
   taken.add(courseID);
+}
+
+Course.selectClass = function(courseNum){
+  var box = document.getElementById(courseNum);
+
+ // alert(box.style.backgroundColor);
+  if(box.style.backgroundColor == 'darkgreen'){
+    Course.removeCourse(courseNum);
+    
+  }
+  else{
+    Course.addCourse(courseNum);
+  
+  }
 }

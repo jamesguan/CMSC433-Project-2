@@ -36,10 +36,11 @@
     <br>
     Select Class: <br>
      <!-- THIS IS INITIALIZED BY THE init() FUNCTION. THIS WILL CONTAIN OPTIONS FOR ALL CLASSES -->
-    <select name="courses"></select>
+     <select name="courses"></select> 
     <br>
+
     <!-- ATTEMPTS TO ADD A COURSE WHEN CLICKED -->
-    <input type="button" name="add" value="Add" class="AddButton" onClick="Course.addCourse()"></input>
+    <input type="button" name="add" value="Add" class="AddButton" onClick="Course.selectClass()"></input>
     <!-- ATTEMPTS TO REMOVE A COURSE WHEN CLICKED -->
     <input type="button" name="remove" value="Remove" class="RemoveButton" onClick="Course.removeCourse()"></input><br> 
     <br>
@@ -55,9 +56,15 @@
   <!-- TABLE FOR COLOR KEY -->
   <table class="KeyTable">
   <th colspan="1">KEY</th>
-  <tr><td style="background: #00FF00">TAKEN</td></tr>
-  <tr><td style="background: yellow">CAN TAKE</td></tr>
-  <tr><td style="background: red">CANNOT TAKE</td></tr>
+  <tr>
+      <td style="background: #00FF00">TAKEN</td>
+    </tr>
+  <tr>
+      <td style="background: yellow">CAN TAKE</td>
+    </tr>
+  <tr>
+      <td style="background: red">CANNOT TAKE</td>
+    </tr>
   </table>  
 </div>
 
@@ -66,61 +73,191 @@
   <!-- TABLE FOR REQUIRED CMSC COURSES -->
   <table class="Left45Table">
   <th colspan="3">REQUIRED CMSC COURSES</th>
-  <tr><td id="CMSC201" onClick="Course.addCourse()">CMSC201</td><td id="CMSC202">CMSC202</td><td id="CMSC203">CMSC203</td></tr>
-  <tr><td id="CMSC304">CMSC304</td><td id="CMSC313">CMSC313</td><td id="CMSC331">CMSC331</td></tr>
-  <tr><td id="CMSC341">CMSC341</td><td id="CMSC411">CMSC411</td><td id="CMSC421">CMSC421</td></tr>
-  <tr><td id="CMSC441">CMSC441</td><td id="CMSC447">CMSC447</td></tr>
+  <tr>
+    <td id="CMSC201" onClick="Course.selectClass(this.id);" >CMSC201</td>
+    <td id="CMSC202" onClick="Course.selectClass(this.id);" >CMSC202</td>
+    <td id="CMSC203" onClick="Course.selectClass(this.id);" >CMSC203</td>
+  </tr>
+  <tr>
+    <td id="CMSC304" onClick="Course.selectClass(this.id);" >CMSC304</td>
+    <td id="CMSC313" onClick="Course.selectClass(this.id);" >CMSC313</td>
+    <td id="CMSC331" onClick="Course.selectClass(this.id);" >CMSC331</td>
+  </tr>
+  <tr>
+    <td id="CMSC341" onClick="Course.selectClass(this.id);" >CMSC341</td>
+    <td id="CMSC411" onClick="Course.selectClass(this.id);" >CMSC411</td>
+    <td id="CMSC421" onClick="Course.selectClass(this.id);" >CMSC421</td>
+  </tr>
+  <tr>
+    <td id="CMSC441" onClick="Course.selectClass(this.id);" >CMSC441</td>
+    <td id="CMSC447" onClick="Course.selectClass(this.id);" >CMSC447</td>
+  </tr>
   </table>
     
   <!-- TABLE FOR COMPUTER SCIENCE ELECTIVES -->
   <table class="Right45Table">
   <th colspan="3">COMPUTER SCIENCE ELECTIVES</th>
-  <tr><td id="CMSC426">CMSC426</td><td id="CMSC431">CMSC431</td><td id="CMSC435">CMSC435</td></tr>
-  <tr><td id="CMSC448">CMSC448</td><td id="CMSC451">CMSC451</td><td id="CMSC455">CMSC455</td></tr>
-  <tr><td id="CMSC456">CMSC456</td><td id="CMSC461">CMSC461</td><td id="CMSC471">CMSC471</td></tr>
-  <tr><td id="CMSC481">CMSC481</td><td id="CMSC483">CMSC483</td></tr>
+  <tr>
+    <td id="CMSC426" onClick="Course.selectClass(this.id);" >CMSC426</td>
+    <td id="CMSC431" onClick="Course.selectClass(this.id);" >CMSC431</td>
+    <td id="CMSC435" onClick="Course.selectClass(this.id);" >CMSC435</td>
+  </tr>
+  <tr>
+    <td id="CMSC448" onClick="Course.selectClass(this.id);" >CMSC448</td>
+    <td id="CMSC451" onClick="Course.selectClass(this.id);" >CMSC451</td>
+    <td id="CMSC455" onClick="Course.selectClass(this.id);" >CMSC455</td>
+  </tr>
+  <tr>
+    <td id="CMSC456" onClick="Course.selectClass(this.id);" >CMSC456</td>
+    <td id="CMSC461" onClick="Course.selectClass(this.id);" >CMSC461</td>
+    <td id="CMSC471" onClick="Course.selectClass(this.id);" >CMSC471</td>
+  </tr>
+  <tr>
+    <td id="CMSC481" onClick="Course.selectClass(this.id);" >CMSC481</td>
+    <td id="CMSC483" onClick="Course.selectClass(this.id);" >CMSC483</td>
+  </tr>
   </table>
   
   <!-- TABLE FOR TECHNICAL ELECTIVES -->
   <table class="FullTable">
   <th colspan="8">TECHNICAL ELECTIVES</th>
-  <tr><td id="CMSC427">CMSC427</td><td id="CMSC432">CMSC432</td><td id="CMSC433">CMSC433</td><td id="CMSC436">CMSC436</td><td id="CMSC437">CMSC437</td><td id="CMSC442">CMSC442</td><td id="CMSC443">CMSC443</td><td id="CMSC444">CMSC444</td></tr>
-  <tr><td id="CMSC446">CMSC446</td><td id="CMSC452">CMSC452</td><td id="CMSC453">CMSC453</td><td id="CMSC457">CMSC457</td><td id="CMSC465">CMSC465</td><td id="CMSC466">CMSC466</td><td id="CMSC473">CMSC473</td><td id="CMSC475">CMSC475</td></tr>
-  <tr><td id="CMSC476">CMSC476</td><td id="CMSC477">CMSC477</td><td id="CMSC478">CMSC478</td><td id="CMSC479">CMSC479</td><td id="CMSC484">CMSC484</td><td id="CMSC486">CMSC486</td><td id="CMSC487">CMSC487</td><td id="CMSC491">CMSC491</td></tr>
-  <tr><td id="CMSC493">CMSC493</td><td id="MATH430">MATH430</td><td id="MATH441">MATH441</td><td id="MATH452">MATH452</td><td id="MATH475">MATH475</td><td id="MATH481">MATH481</td><td id="MATH483">MATH483</td></tr>
+  <tr>
+    <td id="CMSC427" onClick="Course.selectClass(this.id);" >CMSC427</td>
+    <td id="CMSC432" onClick="Course.selectClass(this.id);" >CMSC432</td>
+    <td id="CMSC433" onClick="Course.selectClass(this.id);" >CMSC433</td>
+    <td id="CMSC436" onClick="Course.selectClass(this.id);" >CMSC436</td>
+    <td id="CMSC437" onClick="Course.selectClass(this.id);" >CMSC437</td>
+    <td id="CMSC442" onClick="Course.selectClass(this.id);" >CMSC442</td>
+    <td id="CMSC443" onClick="Course.selectClass(this.id);" >CMSC443</td>
+    <td id="CMSC444" onClick="Course.selectClass(this.id);" >CMSC444</td>
+  </tr>
+  <tr>
+    <td id="CMSC446" onClick="Course.selectClass(this.id);" >CMSC446</td>
+    <td id="CMSC452" onClick="Course.selectClass(this.id);" >CMSC452</td>
+    <td id="CMSC453" onClick="Course.selectClass(this.id);" >CMSC453</td>
+    <td id="CMSC457" onClick="Course.selectClass(this.id);" >CMSC457</td>
+    <td id="CMSC465" onClick="Course.selectClass(this.id);" >CMSC465</td>
+    <td id="CMSC466" onClick="Course.selectClass(this.id);" >CMSC466</td>
+    <td id="CMSC473" onClick="Course.selectClass(this.id);" >CMSC473</td>
+    <td id="CMSC475" onClick="Course.selectClass(this.id);" >CMSC475</td>
+  </tr>
+  <tr>
+    <td id="CMSC476" onClick="Course.selectClass(this.id);" >CMSC476</td>
+    <td id="CMSC477" onClick="Course.selectClass(this.id);" >CMSC477</td>
+    <td id="CMSC478" onClick="Course.selectClass(this.id);" >CMSC478</td>
+    <td id="CMSC479" onClick="Course.selectClass(this.id);" >CMSC479</td>
+    <td id="CMSC484" onClick="Course.selectClass(this.id);" >CMSC484</td>
+    <td id="CMSC486" onClick="Course.selectClass(this.id);" >CMSC486</td>
+    <td id="CMSC487" onClick="Course.selectClass(this.id);" >CMSC487</td>
+    <td id="CMSC491" onClick="Course.selectClass(this.id);" >CMSC491</td>
+  </tr>
+  <tr>
+    <td id="CMSC493" onClick="Course.selectClass(this.id);" >CMSC493</td>
+    <td id="MATH430" onClick="Course.selectClass(this.id);" >MATH430</td>
+    <td id="MATH441" onClick="Course.selectClass(this.id);" >MATH441</td>
+    <td id="MATH452" onClick="Course.selectClass(this.id);" >MATH452</td>
+    <td id="MATH475" onClick="Course.selectClass(this.id);" >MATH475</td>
+    <td id="MATH481" onClick="Course.selectClass(this.id);" >MATH481</td>
+    <td id="MATH483" onClick="Course.selectClass(this.id);" >MATH483</td>
+  </tr>
   </table>
   
   <!-- TABLE FOR GENERAL CREDIT ELECTIVES -->
   <table class="Left60Table">
   <th colspan="4">GENERAL CREDIT ELECTIVES</th>
-  <tr><td id="CMSC100">CMSC100</td><td id="CMSC103">CMSC103</td><td id="CMSC104">CMSC104</td><td id="CMSC106">CMSC106</td></tr>
-  <tr><td id="CMSC109">CMSC109</td><td id="CMSC121">CMSC121</td><td id="CMSC232">CMSC232</td><td id="CMSC291">CMSC291</td></tr>
-  <tr><td id="CMSC299">CMSC299</td><td id="CMSC345">CMSC345</td><td id="CMSC352">CMSC352</td><td id="CMSC391">CMSC391</td></tr>
-  <tr><td id="CMSC404">CMSC404</td><td id="CMSC495">CMSC495</td><td id="CMSC498">CMSC498</td><td id="CMSC499">CMSC499</td></tr>
+  <tr>
+    <td id="CMSC100" onClick="Course.selectClass(this.id);" >CMSC100</td>
+    <td id="CMSC103" onClick="Course.selectClass(this.id);" >CMSC103</td>
+    <td id="CMSC104" onClick="Course.selectClass(this.id);" >CMSC104</td>
+    <td id="CMSC106" onClick="Course.selectClass(this.id);" >CMSC106</td>
+  </tr>
+  <tr>
+    <td id="CMSC109" onClick="Course.selectClass(this.id);" >CMSC109</td>
+    <td id="CMSC121" onClick="Course.selectClass(this.id);" >CMSC121</td>
+    <td id="CMSC232" onClick="Course.selectClass(this.id);" >CMSC232</td>
+    <td id="CMSC291" onClick="Course.selectClass(this.id);" >CMSC291</td>
+  </tr>
+  <tr>
+    <td id="CMSC299" onClick="Course.selectClass(this.id);" >CMSC299</td>
+    <td id="CMSC345" onClick="Course.selectClass(this.id);" >CMSC345</td>
+    <td id="CMSC352" onClick="Course.selectClass(this.id);" >CMSC352</td>
+    <td id="CMSC391" onClick="Course.selectClass(this.id);" >CMSC391</td>
+  </tr>
+  <tr>
+    <td id="CMSC404" onClick="Course.selectClass(this.id);" >CMSC404</td>
+    <td id="CMSC495" onClick="Course.selectClass(this.id);" >CMSC495</td>
+    <td id="CMSC498" onClick="Course.selectClass(this.id);" >CMSC498</td>
+    <td id="CMSC499" onClick="Course.selectClass(this.id);" >CMSC499</td>
+  </tr>
   </table>
   
   <!-- TABLE FOR REQUIRED MATH AND STAT -->
   <table class="Right30Table">
   <th colspan="2">REQUIRED MATH</th>
-  <tr><td id="MATH151">MATH151</td><td id="MATH152">MATH152</td><tr>
-  <tr><td id="MATH221">MATH221</td><td id="STAT355">STAT355</td></tr>
+  <tr>
+    <td id="MATH151" onClick="Course.selectClass(this.id);" >MATH151</td>
+    <td id="MATH152" onClick="Course.selectClass(this.id);" >MATH152</td><tr>
+  <tr>
+    <td id="MATH221" onClick="Course.selectClass(this.id);" >MATH221</td>
+    <td id="STAT355" onClick="Course.selectClass(this.id);" >STAT355</td>
+  </tr>
   </table>
   
   <!-- TABLE FOR REQUIRED SCIENCES -->
   <table class="FullTable">
   <th colspan="4">REQUIRED SCIENCE</th>
-  <tr><td id="BIOL100">BIOL100</td><td id="BIOL301">BIOL301</td><td id="BIOL141">BIOL141</td><td id="BIOL142">BIOL142</td></tr>
-  <tr><td id="CHEM101">CHEM101</td><td id="CHEM102">CHEM102</td><td id="PHYS121">PHYS121</td><td id="PHYS122">PHYS122</td></tr>
+  <tr>
+    <td id="BIOL100" onClick="Course.selectClass(this.id);" >BIOL100</td>
+    <td id="BIOL301" onClick="Course.selectClass(this.id);" >BIOL301</td>
+    <td id="BIOL141" onClick="Course.selectClass(this.id);" >BIOL141</td>
+    <td id="BIOL142" onClick="Course.selectClass(this.id);" >BIOL142</td>
+  </tr>
+  <tr>
+    <td id="CHEM101" onClick="Course.selectClass(this.id);">CHEM101</td>
+    <td id="CHEM102" onClick="Course.selectClass(this.id);">CHEM102</td>
+    <td id="PHYS121" onClick="Course.selectClass(this.id);">PHYS121</td>
+    <td id="PHYS122" onClick="Course.selectClass(this.id);">PHYS122</td>
+  </tr>
   </table>
   
   <!-- TABLE FOR ADDITIONAL SCIENCES -->
   <table class="FullTable">
   <th colspan="5">ADDITIONAL SCIENCES</th>
-  <tr><td id="BIOL100L">BIOL100L</td><td id="BIOL251">BIOL251</td><td id="BIOL251L">BIOL251L</td><td id="BIOL252">BIOL252</td><td id="BIOL252L">BIOL252L</td></tr>
-  <tr><td id="BIOL275">BIOL275</td><td id="BIOL275L">BIOL275L</td><td id="BIOL302">BIOL302</td><td id="BIOL302L">BIOL302L</td><td id="BIOL303">BIOL303</td></tr>
-  <tr><td id="BIOL303L">BIOL303L</td><td id="BIOL304">BIOL304</td><td id="BIOL304L">BIOL304L</td><td id="BIOL305">BIOL305</td><td id="BIOL305L">BIOL305L</td></tr>
-  <tr><td id="CHEM102L">CHEM102L</td><td id="GES110">GES110</td><td id="GES111">GES111</td><td id="GES120">GES120</td><td id="MATH225">MATH225</td></tr>
-  <tr><td id="MATH251">MATH251</td><td id="MATH301">MATH301</td><td id="PHYS122L">PHYS122L</td><td id="PHYS224">PHYS224</td><td id="PHYS304">PHYS304</td></tr>
+  <tr>
+    <td id="BIOL100L" onClick="Course.selectClass(this.id);">BIOL100L</td>
+    <td id="BIOL251"  onClick="Course.selectClass(this.id);" >BIOL251</td>
+    <td id="BIOL251L" onClick="Course.selectClass(this.id);">BIOL251L</td>
+    <td id="BIOL252"  onClick="Course.selectClass(this.id);" >BIOL252</td>
+    <td id="BIOL252L" onClick="Course.selectClass(this.id);">BIOL252L</td>
+  </tr>
+  <tr>
+    <td id="BIOL275"  onClick="Course.selectClass(this.id);" >BIOL275</td>
+    <td id="BIOL275L" onClick="Course.selectClass(this.id);" >BIOL275L</td>
+    <td id="BIOL302"  onClick="Course.selectClass(this.id);" >BIOL302</td>
+    <td id="BIOL302L" onClick="Course.selectClass(this.id);" >BIOL302L</td>
+    <td id="BIOL303"  onClick="Course.selectClass(this.id);" >BIOL303</td>
+  </tr>
+  <tr>
+    <td id="BIOL303L" onClick="Course.selectClass(this.id);">BIOL303L</td>
+    <td id="BIOL304"  onClick="Course.selectClass(this.id);" >BIOL304</td>
+    <td id="BIOL304L" onClick="Course.selectClass(this.id);">BIOL304L</td>
+    <td id="BIOL305"  onClick="Course.selectClass(this.id);" >BIOL305</td>
+    <td id="BIOL305L" onClick="Course.selectClass(this.id);">BIOL305L</td>
+  </tr>
+  <tr>
+    <td id="CHEM102L" onClick="Course.selectClass(this.id);">CHEM102L</td>
+    <td id="GES110"   onClick="Course.selectClass(this.id);">GES110</td>
+    <td id="GES111"   onClick="Course.selectClass(this.id);">GES111</td>
+    <td id="GES120"   onClick="Course.selectClass(this.id);">GES120</td>
+    <td id="MATH225"  onClick="Course.selectClass(this.id);" >MATH225</td>
+  </tr>
+  <tr>
+    <td id="MATH251"  onClick="Course.selectClass(this.id);" >MATH251</td>
+    <td id="MATH301"  onClick="Course.selectClass(this.id);" >MATH301</td>
+    <td id="PHYS122L" onClick="Course.selectClass(this.id);">PHYS122L</td>
+    <td id="PHYS224"  onClick="Course.selectClass(this.id);">PHYS224</td>
+    <td id="PHYS304"  onClick="Course.selectClass(this.id);">PHYS304</td>
+  </tr>
 </div>
 </body>
 </html>
