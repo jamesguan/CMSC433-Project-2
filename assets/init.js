@@ -23,7 +23,7 @@ function init(){
   coursemap.set("BIOL302L", new Course(["BIOL302"]));
   coursemap.set("BIOL303", new Course(["BIOL302","CHEM102","MATH151"]));
   coursemap.set("BIOL303L", new Course(["BIOL302","BIOL303"]));
-  coursemap.set("BIOL304", new Course(["BIOL304"]));
+  coursemap.set("BIOL304", new Course(["BIOL303"]));
   coursemap.set("BIOL304L", new Course(["BIOL303L","BIOL304"]));
   coursemap.set("BIOL305", new Course(["BIOL303","PHYS122"]));
   coursemap.set("BIOL305L", new Course(["BIOL305"]));
