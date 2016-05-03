@@ -1,0 +1,41 @@
+Documentation
+	Editable (DOC)
+	
+	Introduction of team (names, emails)
+		roles played by each team member
+		
+	How does Lupoli get to it (put it on GL)
+	
+	Project Description
+	
+	What did we Add (text and screencaps)
+		What things didnt we add and why
+		
+	What did we improve and why
+	
+	Database setup
+		should look like labs w/ screencaps
+		dump db
+		
+	Languages used and where (dont include CSS)
+	
+	Slick sheet (screencaps that show features working with descriptive captions)
+	
+Presentation
+	5/12 1-3***********************
+	5/16 9-12:30
+	ITE 209
+	Casual dress
+	
+	15 MINUTES
+		equal talk time
+		demo
+		powerpoint going over things in documentation
+
+Submission
+	One person submits
+	Project2.zip
+		Code
+		Documentation
+		DB dump
+	Due May 11, midnight
