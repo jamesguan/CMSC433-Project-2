@@ -3,7 +3,7 @@
 //COLORS
 var red = "lightgrey";
 var yellow = "GoldenRod";
-var green = 'darkgreen';
+var green = 'green';
 
 //default constructor for ColorFiller
 function ColorFiller(){}

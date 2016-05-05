@@ -1,14 +1,23 @@
+* {
+    box-sizing: border-box;
+    font-family: "Tahoma", Geneva, sans-serif;
+}
+
 /* set the background of the body to a light goldish */
 body{
-  background-color: grey;
+  background-color: black;
 }
 /* give inputs a width of 143px */
 input{
-  width: 143px;
+  width: 155px;
+}
+input[type="text"]{
+  margin-top: 5px;
 }
 /* give selects a width of 145px */
 select{
-  width: 147px;
+  margin-top: 5px;
+  width: 190px;
 }
 /* give tables and cells:
  * a collapsed 1px black border
@@ -17,37 +26,27 @@ select{
  * evenly spaced cells
  */
 table{
-  border-collapse: collapse;
   empty-cells: show;
   margin-bottom: 22px;
+  margin-left: 22px;
   text-align: center;
   table-layout: fixed;
+  width: 80%;
 }
 
 td{
   border-collapse: collapse;
-  
   margin-bottom: 22px;
   text-align: center;
   table-layout: fixed;
-
-}
-table tr:last-child td:first-child {
-    -moz-border-radius-bottomleft:10px;
-    -webkit-border-bottom-left-radius:10px;
-    border-bottom-left-radius:15px
-}
-
-table tr:last-child td:last-child {
-    -moz-border-radius-bottomright:10px;
-    -webkit-border-bottom-right-radius:10px;
-    border-bottom-right-radius:15px
 }
 
 /* make table headers goldish */
 th{
   color: GoldenRod;
   background-color: black;
+  height: 35px;
+  border: 1px white;
 }
 /* give the div element with the form:
  * goldish background
@@ -59,13 +58,13 @@ th{
  * 10px padding (prevents things from being right on the borders)
  */
 .form{
- color: GoldenRod;
+  color: GoldenRod;
   background-color: black;
   position: fixed;
   top: 0px;
   bottom: 0px;
   left: 0px;
-  width: 147px;
+  width: 210px;
   padding: 10px;
 }
 /* properly space the add and remove buttons and align them next to each other */
@@ -92,38 +91,17 @@ th{
  */
 .tables{
   position: absolute;
-  top: 0px;
+  top: 20px;
   bottom: 0px;
   right: 0px;
-  left: 167px;
+  left: 25%;
   padding: 10px;
   min-width: 600px;
 }
 /* table with width 500px aligned to center of container */
 .KeyTable{
+  color: black;
   width: 100%;
-}
-/* table with width 45% aligned to left side of container */
-.Left45Table{
-  float: left;
-  width: 45%;
-}
-/* table with width 60% aligned to left side of container */
-.Left60Table{
-  float: left;
-  width: 60%;
-}
-/* table with width 30% aligned to right side of container */
-.Right30Table{
-  float: right;
-  width: 30%;
-}
-/* table with width 45% aligned to right side of container */
-.Right45Table{
-  float: right;
-  width: 45%;
-}
-/* table with width 100% with no alignment */
-.FullTable{
-  width: 100%;
+  margin: 0;
+  margin-top: 5px;
 }

@@ -118,14 +118,6 @@ function init(){
   //initialize unlocks
   initUnlocks();
   
-  //get the list of courses from the web page
-  var courseList = document.form.elements["courses"];
-
-  //initialize the list of courses
-  coursemap.forEach(function(value, key){
-    courseList.add(new Option(key, key));
-  }, coursemap);
-  
   //initialize the colors based on prereqs
   ColorFiller.init();
 }
