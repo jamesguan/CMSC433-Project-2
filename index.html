@@ -14,34 +14,31 @@
 
 <!-- DIV TO KEEP THE FORM SEPERATE FROM THE TABLES -->
 <div class="form">
-    <h2>CMSC Class Selector</h2>
-	<h4>Version 2.0</h4>
+   <img src="assets/UMBC_Seal.png" style="margin-left: -5px;">
   <!-- WHEN THE FORM IS SUBMITTED, CALL THE Course.compileTakenCourses() FUNCTION FROM Course.js 
        AND Validator.validate() FUNCTION FROM Validator.js-->
   <form name="form" onsubmit="Course.compileTakenCourses(); return Validator.validate()" action="submit.php" method="POST">
     <fieldset style="border-color: white; margin: 0;">
 	<legend style="color: white">Student Info</legend>
-	<br>
+	
 	Name<br>
     <!-- INPUT TEXTBOX FOR NAME -->
     <input type="text" name="name"></input><br>
     <br>
-	<br>
     Phone Number<br>
     <!-- INPUT TEXTBOX FOR PHONE -->
     <input type="text" name="phone"></input><br>
-    <br>
-	<br>
+  	<br>
     Email<br>
     <!-- INPUT TEXTBOX FOR EMAIL -->
     <input type="text" name="email"></input><br>
-    <br>
+  
 	<br>
     Campus ID<br>
     <!-- INPUT TEXTBOX FOR CAMPUS ID -->
     <input type="text" name="id"></input><br><br>
     </fieldset>
-	<br><br>
+	<br>
 	<!-- HIDDEN SELECT ELEMENT TO PASS INTO PHP ON SUBMIT. FILLED BY THE Course.compileTakenCourses() FUNCTION. -->
     <select name="taken[]" id="taken" multiple hidden></select>
     <!-- BUTTON TO SUBMIT THE FORM -->
