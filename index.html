@@ -18,14 +18,14 @@
 
 <!-- DIV TO KEEP THE FORM SEPERATE FROM THE TABLES -->
 <div class="form">
-   <img src="assets/UMBC_Seal.png" style="margin-left: -5px;">
+   <img id="seal" src="assets/UMBC_Seal.png" style="margin-left: -5px;">
   <!-- WHEN THE FORM IS SUBMITTED, CALL THE Course.compileTakenCourses() FUNCTION FROM Course.js 
        AND Validator.validate() FUNCTION FROM Validator.js-->
   <form name="form" onsubmit="Course.compileTakenCourses(); return Validator.validate()" action="submit.php" method="POST">
     <fieldset style="border-color: white; margin: 0;">
 	<legend style="color: white">Student Info</legend>
 	
-	Name<br>
+	  Name<br>
     <!-- INPUT TEXTBOX FOR NAME -->
     <input type="text" name="name"></input><br>
     <br>

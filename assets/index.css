@@ -80,6 +80,15 @@ th{
 .SubmitButton{
   width: 100%;
 }
+
+/* Set the size of the UMBC emblem
+ * 
+ */
+#seal{
+  width: 200px;
+}
+ 
+ 
 /* give the div element with the tables:
  * absolute position
  * top border at the top of the page
